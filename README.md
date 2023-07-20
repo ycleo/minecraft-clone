@@ -1,33 +1,38 @@
-# Welcome to React three fiber Minecraft
+# Mini Minecraft Clone
 
-This project is just me trying to mimic Minecraft in React.
-How i did it can be seen in this Youtube video:
-[![Video preview](https://img.youtube.com/vi/qpOZup_3P_A/0.jpg)](https://www.youtube.com/watch?v=qpOZup_3P_A)
+This is an interesting Minecraft game implementation by React and Three.js.
 
-Demo: https://minecraft-freecodecamp.vercel.app/
+![image](https://github.com/ycleo/minecraft-clone/assets/64058170/9a86b797-a0ce-4c31-9ebe-58e72991b871)
 
 ## How to play?
 
-Currently it has 5 types of blocks: Grass, Wood, Log, Glass and Dirt.
-You switch blocks with numbers 1-5 on your keyboard.
-You navigate the world with the mouse and WASD.
-You can click to add blocks and Alt+Click to remove blocks.
-You world is stored in your browsers local storage.
+- In the project directory, run `npm install && npm start`
+- Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
-![Preview](preview.png 'Preview')
+#### Movement
+- `w`: Foward
+- `s`: Backward
+- `a`: Left
+- `d`: Right
+- `space`: Jump
+- **(Tip)** Align your cursor with the centered `+` sign and click mouse to rotate the screen
 
-## Want to extend, develop modify?
+#### Block 
+- `alt` or `option` + mouse click: Remove the block
+- `1`: Select Dirt Block
+- `2`: Select Grass Block
+- `3`: Select Glass Block
+- `4`: Select Wood Block
+- `5`: Select Log Block
 
-If you do so or just build a cool world. Please share it with me dbark@hey.com or https://twitter.com/barelydaniel
 
-In the project directory, you can run:
+The system features five block types: Grass, Wood, Log, Glass, and Dirt. 
 
-### `npm install && npm start`
+Block selection is achieved via keyboard numbers 1-5. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Navigation is managed using the mouse and WASD keys. Clicking adds blocks, while Alt+Click removes them. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The world data is stored locally in the browser.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://github.com/ycleo/minecraft-clone/assets/64058170/8b57cd9f-fbbd-4617-82ee-891c59e82b91)
+
