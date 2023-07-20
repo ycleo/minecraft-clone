@@ -5,11 +5,11 @@ import { Ground } from './components/Ground';
 import {Player } from './components/Player';
 import { FPV } from './components/FPV';
 import { Cubes } from './components/Cubes';
+import { TextureSelector } from './components/TextureSelector';
 
 function App() {
   return (
     <>
-      <div>Outside Canvas</div>
       <Canvas>
         <Sky sunPosition={[100, 200, 20]} />
         <ambientLight intensity={0.5} />
@@ -21,6 +21,7 @@ function App() {
         </Physics>
       </Canvas>
       <div className="absolute centered cursor">+</div>
+      <TextureSelector />
     </>
   );
 }
