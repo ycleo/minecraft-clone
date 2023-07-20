@@ -3,6 +3,8 @@ import { Sky } from '@react-three/drei';
 import { Physics } from '@react-three/cannon';
 import { Ground } from './components/Ground';
 import {Player } from './components/Player';
+import { FPV } from './components/FPV';
+import { Cubes } from './components/Cubes';
 
 function App() {
   return (
@@ -11,11 +13,14 @@ function App() {
       <Canvas>
         <Sky sunPosition={[100, 200, 20]} />
         <ambientLight intensity={0.5} />
+        <FPV />
         <Physics>
           <Ground />
           <Player />
+          <Cubes />
         </Physics>
       </Canvas>
+      <div class="absolute centered cursor">+</div>
     </>
   );
 }
