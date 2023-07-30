@@ -6,6 +6,8 @@ const setLocalStorage = (key, value) => window.localStorage.setItem(key, JSON.st
 
 export const useStore = create((set) => ({
     texture: 'dirt', 
+    existStartCube: getLocalStorage('existStartCube') || false,
+    existTargetCube: getLocalStorage('existTargetCube') || false,
     cubes: getLocalStorage('cubes') || [],
     addCube: (x, y, z) => {
         set((prev) => ({
@@ -36,11 +38,25 @@ export const useStore = create((set) => ({
     saveWorld: () => {
         set((prev) => {
 			setLocalStorage('cubes', prev.cubes)
+            setLocalStorage('existStartCube', prev.existStartCube)
+            setLocalStorage('existTargetCube', prev.existTargetCube)
 		})
     },
     resetWorld: () => {
         set(() => ({
-			cubes: []
+			cubes: [],
+            existStartCube: false,
+            existTargetCube: false,
 		}))
+    },
+    setExistStartCube: (status) => {
+        set(() => ({
+            existStartCube: status
+        }))
+    },
+    setExistTargetCube: (status) => {
+        set(() => ({
+            existTargetCube: status,
+        }))
     },
 }))

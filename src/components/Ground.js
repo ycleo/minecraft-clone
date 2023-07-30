@@ -7,7 +7,21 @@ export const Ground = () => {
         rotation: [-Math.PI / 2, 0, 0], position: [0, -0.5, 0]
     }))
 
-    const [addCube] = useStore((state) => [state.addCube])
+    const [
+        addCube, 
+        texture, 
+        existStartCube,
+        existTargetCube,
+        setExistStartCube, 
+        setExistTargetCube, 
+    ] = useStore((state) => [
+        state.addCube, 
+        state.texture, 
+        state.existStartCube,
+        state.existTargetCube,
+        state.setExistStartCube, 
+        state.setExistTargetCube, 
+    ])
 
     groundTexture.repeat.set(100, 100);
 
@@ -15,6 +29,14 @@ export const Ground = () => {
         <mesh 
         onClick={(e) => {
             e.stopPropagation()
+            if (texture === "start") {
+                if (existStartCube) return
+                setExistStartCube(true)
+            }
+            if (texture === "target") {
+                if (existTargetCube) return 
+                setExistTargetCube(true)
+            }
             const [x, y, z] = Object.values(e.point).map(val => Math.ceil(val))
             addCube(x, y, z)
         }}

@@ -10,7 +10,23 @@ export const Cube = ({ position, texture }) => {
         position
     }))
 
-    const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
+    const [
+        addCube, 
+        removeCube, 
+        currentSelectedTexture,
+        existStartCube,
+        existTargetCube,
+        setExistStartCube, 
+        setExistTargetCube, 
+    ] = useStore((state) => [
+        state.addCube, 
+        state.removeCube, 
+        state.texture,
+        state.existStartCube,
+        state.existTargetCube,
+        state.setExistStartCube, 
+        state.setExistTargetCube, 
+    ])
 
     const activeTexture = textures[texture + "Texture"]
     return (
@@ -29,9 +45,24 @@ export const Cube = ({ position, texture }) => {
                 const { x, y, z } = ref.current.position
                 if (e.altKey) {
                     removeCube(x, y, z)
+                    if (activeTexture === textures['startTexture'])
+                        setExistStartCube(false)
+                    if (activeTexture === textures['targetTexture'])
+                        setExistTargetCube(false)
                     return
                 }
-                else if (clickedFace === 0) {
+                if(currentSelectedTexture === "start") {
+                    if (existStartCube)
+                        return
+                    setExistStartCube(true)
+                } 
+                if(currentSelectedTexture === "target") {
+                    if (existTargetCube)
+                        return 
+                    setExistTargetCube(true)
+                }
+
+                if (clickedFace === 0) {
                     addCube(x + 1, y, z)
                     return
                 }
