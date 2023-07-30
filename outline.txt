@@ -10,3 +10,18 @@
 - Cubes
 - Cube type selector
 - Save world in localstorage
+
+
+- A* path finding feature
+    - start block (only one allowed)
+    - end block (only one allowed)
+    - search block
+    - path block
+
+    - after placing start and end block, we can allow user to press "start A* algo" button
+    - when the algo is running, we cannot allow user to remove any block
+    - after algorithm, user needs to clear the whole path before manipulating other blocks  -> need a clear button
+    
+    - if start and end block exist -> A* button show
+    - if path generated done -> A* button gone -> clearn button show 
+    
